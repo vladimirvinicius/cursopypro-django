@@ -24,3 +24,4 @@ jobs:
     - name: Lint with flake8
       run: |
         pipenv run flake8 .
+        pipenv run pytest
