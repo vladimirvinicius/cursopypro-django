@@ -24,4 +24,11 @@ jobs:
     - name: Lint with flake8
       run: |
         pipenv run flake8 .
-        pipenv run pytest
+    
+    - name: Test whith pytest
+      run: |
+        pipenv run pytest pypro --cov=pypro
+
+    - name: Posting Coverage
+      run: |
+        pipenv run codecov
