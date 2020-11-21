@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
+    'collectfast',
     'django.contrib.staticfiles',
-    'pypro.base'
+    'cloudinary',
+    'pypro.base',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +132,25 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
+# Configuração do Cloudinary
+
+COLLECTFAST_ENABLED = False
+
+CLOUDINARY_ACCESS_KEY_ID = config('API_KEY')
+
+
+# Storage configuration in
+if CLOUDINARY_ACCESS_KEY_ID:
+    CLOUDINARY_STORAGE = {    # pragma: no cover
+        'CLOUD_NAME': config('CLOUD_NAME'),
+        'API_KEY': config('API_KEY'),
+        'API_SECRET': config('API_SECRET')
+    }
+    # static assets
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # pragma: no cover
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'  # pragma: no cover
+
+    # Media assets
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'  # pragma: no cover
+    COLLECTFAST_ENABLED = True
