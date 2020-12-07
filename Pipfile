@@ -18,6 +18,7 @@ psycopg2-binary = "*"
 cloudinary = "*"
 django-cloudinary-storage = "*"
 collectfast = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.8"

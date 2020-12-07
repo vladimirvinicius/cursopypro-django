@@ -1,8 +1,9 @@
-DEBUG = False
-SECRET_KEY = defina_sua_chave_secreta
-ALLOWED_HOSTS = localhost, 127.0.0.1
+DEBUG=False
+SECRET_KEY=defina_sua_chave_secreta
+ALLOWED_HOSTS=localhost, 127.0.0.1
 DATABASE_URL=postgres://postgres:postgres@localhost/postgres
 # Cloudinary Configuration
 API_KEY=
 API_SECRET=
 CLOUD_NAME=
+INTERNAL_IPS=127.0.0.1
