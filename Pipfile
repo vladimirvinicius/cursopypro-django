@@ -21,6 +21,7 @@ django-cloudinary-storage = "*"
 collectfast = "*"
 django-debug-toolbar = "*"
 sentry-sdk = "*"
+django-ordered-model = "*"
 
 [requires]
 python_version = "3.8"
